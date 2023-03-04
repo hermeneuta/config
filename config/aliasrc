@@ -1,0 +1,129 @@
+#Taskwarrior
+alias d="clear; task" #d jako skrót od do. Alias do taskwarrior
+alias mod="task modify" #pozwala modyfikować dane zadanie. Po komendzie potrzebny identyfikator, e.g. mod 5 due:today
+alias don="task done" #zakończenie zadania. Po komendzie potrzebny indentyfikator
+alias add="task add" #dodawanie zadań
+alias del='task delete'
+alias work='clear; task +work' #lista zadań z tagiem work
+alias study='clear; task +study' #lista zadań z tagiem study
+alias purchase='clear; task +purchase' #lista zadań z tagiem purchase
+alias cs='clear; task project:CS' #lista zadań dla projektu CS 
+
+#timewarrior
+alias t="timew" #alias dla timewarrior
+alias start='timew start' #rozpoczęcie okrślonego interwału
+alias stop="timew stop" #zatrzymuje aktywny interwał
+alias track="timew track" #pozwala na wprowadzenie zakończonego interwału
+alias day='timew day rc.reports.day.hours=auto rc.reports.day.lines=4 rc.reports.day.axis=external'
+alias week='timew week'
+alias summary='timew summary :ids'
+alias tag='timew tag'
+alias utag='timew untag'
+alias leng='timew lengthen'
+
+#Web
+alias sale='open https://docs.google.com/spreadsheets/d/14mRHZpej4AFy1mKoO4D6_C09P8jo__MEiJ9S2XI-nQA/edit#gid=0'
+alias hoc='ssh hoc@propterhoc.xyz'
+alias dev='ssh developer@propterhoc.xyz'
+alias propter='ssh root@propterhoc.xyz'
+alias malina='ssh mlinux@192.168.101.87'
+alias aws='ssh -i "keymaster.pem" ec2-user@ec2-18-207-124-170.compute-1.amazonaws.com'
+alias wp='open https://sztukmistrze.workplace.com/login.php'
+alias proptersync='rsync -uvrP --delete-after ~/website/xyz/ root@propterhoc.xyz:/var/www/propter'
+alias fromXyzSync='rsync -uvrP --delete-after root@propterhoc.xyz:/var/www/propter ~/website/xyzDownload'
+alias comsync='rsync -uvrP --delete-after ~/website/com/ root@propterhoc.xyz:/var/www/com'
+alias iosync='rsync -uvrP --delete-after ~/website/io/ root@propterhoc.xyz:/var/www/io'
+alias przelewy='open https://docs.google.com/spreadsheets/d/16qbKaZ9kaVit0go3CS4ubvasdOCKGnduGqUHIXRI_O4/edit#gid=0'
+alias ua='open https://docs.google.com/spreadsheets/d/1Ov6tEJEWv7-CVRXd_zGAhvzPFUdimcUaHy6BElEYFDM/edit#gid=0'
+alias video21='open https://vimeo.com/639958705'
+alias hss='hugo server --noHTTPCache'
+alias 9811='open https://vimeo.com/649557271/b8d0c64e14'
+
+#Programs
+alias js="jshell"
+alias v="nvim"
+alias grep="grep --color"  
+alias rss="newsboat -rq; src"
+alias py="python3"
+alias dfc="df -H /System/Volumes/Data"
+alias ls="ls -G"
+alias ll="exa -la -s inode"
+alias wf="tmux new -s workflow"
+alias kal="calcurse"
+alias wifi="security find-generic-password -wa"
+alias sed=gsed
+alias icat="kitty +kitten icat"
+alias backup='sudo rsync -av --delete /private/etc /Users/mat /usr/local /Volumes/Seagate\ Expansi/backup'
+alias src='source ~/.zshrc'
+alias fm='vifm . >> /dev/null 2>&1; src' 
+alias n='nnn -P p -C; src; clear'
+alias pdf='zathura'
+alias neo='neomutt; src'
+alias new='neomutt -Z; src'
+alias f='awk -f $HOME/bin/f.awk $HOME/vimwiki/Finanse.md'
+alias mp3='ffmpeg -i' #alias pozwalający na ekstrakt audio z pliku video; use case: mp3 video.mp4 audio.mp3
+alias lserver='python3 -m http.server'
+alias mysqlstart='sudo /usr/local/mysql/support-files/mysql.server start'
+alias mysqlstop='sudo /usr/local/mysql/support-files/mysql.server stop'
+alias mysqlopen='/usr/local/mysql/bin/mysql -u root -p' #password: password
+
+
+#Folders
+alias code="cd ~/CS"
+alias bin="cd ~/bin; cat README"
+alias web="cd ~/website"
+alias repo="cd ~/Repo"
+alias doc="cd ~/Documents"
+alias gc="cd ~/CS/C"
+alias gp="cd ~/CS/python"
+alias con="cd ~/.config; exa -la -s name"
+alias wip="cd ~/Documents/art/Wip"
+alias latin='cd ~/Documents/Latin'
+alias dow='cd ~/Downloads; move; ll'
+alias books='cd ~/books; move; pf2; ll'
+alias philo='cd ~/Documents/philosophy'
+alias show='cd ~/Documents/art/Bremen/show'
+alias portal='cd ~/Portal'
+alias art='cd $HOME/Documents/art'
+alias teksty='cd ~/Documents/art/Teksty'
+alias gnoza='cd ~/Documents/art/Teksty/gnoza'
+alias io='cd ~/website/io'
+alias ltx='cd ~/Documents/latex'
+
+#Files
+alias h="v ~/vimwiki/index.md"
+alias zrc='v ~/.zshrc'
+alias alrc='v ~/.config/aliasrc'
+alias note='v ~/vimwiki/Notes.md'
+alias url="v ~/.newsboat/urls"
+alias xyz="v ~/website/xyz/index.html"
+alias tribute="v ~/Documents/art/Tribute/scenariusz.md"
+alias clowns="v ~/Documents/art/Clowns/clowns.md"
+alias games="v ~/Documents/art/games.md"
+alias prechac="v ~/Documents/art/prechac.md"
+alias biblio="v ~/Documents/latex/uni.bib"
+
+#aliasy pomocnicze
+alias latin_short="sleep 1800; say -v Alice Diskipulus bonus. Intermissio habet." 
+alias latin_long="sleep 3000; say -v Alice Diskipulus bonus. Intermissio habet." 
+
+# Aliases to books
+alias declension='zathura -P 495 ~/Documents/Latin/Wheelock/wheelock.pdf &'
+alias beginners_latin='zathura ~/Documents/Latin/beginners_latin.pdf &'
+alias linux='zathura ~/Documents/Mathesis/The\ Linux\ Command\ Line.pdf &'
+
+# Study, learning, project sessions 
+alias tt="timew start Typing; gtypist; timew stop" #touch typing with gnu-typist
+alias reading_short="timew start Reading; echo 'Krótka sesja czytania (30 min)'; say Short reading session started; sleep 1800; say Session over. Take a break; timew stop"
+alias reading_long="timew start Reading; echo 'Długa sesja czytania (50 min)'; say Long reading session started; sleep 3000; say Session over. Take a break; timew stop"
+alias study_cs_short="timew start CS; echo 'Short CS Session (30 min)'; say Short CS session started; sleep 1800; say Session over. Nice work. Have a break and consider to resume after; timew stop"
+alias study_cs_long="timew start CS; echo 'Long CS Session (50 min)'; say Long CS session started; sleep 3000; say Session over. Nice work. Have a break and consider to resume after; timew stop"
+alias study_scripting='timew start CS Scripting; zathura ~/Documents/Mathesis/The\ Linux\ Command\ Line.pdf &; echo "50 min session with Linux has started"; sleep 3000; say Have a handsome reward for a task well performed; timew stop'
+alias study_latina_parva='timew start Latina; zathura -P 495 ~/Documents/Latin/Wheelock/wheelock.pdf &; zathura ~/Documents/Latin/beginners_latin.pdf &; echo "Short Session (30 min) Started..."; latin_short; timew stop' 
+alias study_latina_longa='timew start Latina; zathura -P 495 ~/Documents/Latin/Wheelock/wheelock.pdf &; zathura ~/Documents/Latin/beginners_latin.pdf &; echo "Long Session (50 min) Started..."; latin_long; timew stop'
+alias project_latina_empire="timew start C CS 'Latin Empire'; echo 'Short CS Session (30 min)'; say Short CS session started; sleep 1800; say Session over. Nice work. Have a break and consider to resume after; timew stop"
+alias config="timew start Config; say Configuration started; sleep 1800; say thirty minutes of configuration have passed. Stop time warrior manually."
+
+#Zamrożone
+#alias con="python3 ~/CS/python/to_md.py"
+
