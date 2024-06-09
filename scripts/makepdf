@@ -1,0 +1,26 @@
+#!/bin/zsh
+#Programm 
+#Compile .tex file to .pdf with bibliography (using biber)
+#Structure:
+#makepdf [fileName] 
+
+usage () {
+  echo "[pdflatex and biber] Choose file to convert to pdf"
+  echo "Usage: makepdf (fileName)"
+  exit 1
+}
+
+if [ -z $1 ]
+then
+  usage;
+fi
+
+if [ ! -e "$1".tex ]
+then
+ echo "The file $1.tex does not exist" 
+fi
+
+if [ $1 -a -e "$1".tex ]
+then 
+  pdflatex --shell-escape "$1".tex; biber "$1"; pdflatex --shell-escape "$1".tex; biber "$1"; pdflatex --shell-escape "$1".tex; biber "$1" 
+fi
